@@ -18,6 +18,6 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void addUser(String login, String password) {
-
+        this.jdbcTemplate.update("insert into qh.accounts (login, password) values (?, ?)", login, password);
     }
 }

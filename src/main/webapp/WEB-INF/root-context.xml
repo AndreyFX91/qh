@@ -7,7 +7,9 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/jdbc
+        http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
     <context:annotation-config/>
     <context:component-scan base-package="com.akfx.qh.service, com.akfx.qh.dao"/>
     <!-- database -->
@@ -17,8 +19,8 @@
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
     </bean>
-    <context:property-placeholder location="jdbc.properties"/>
+    <context:property-placeholder location="/sql/jdbc.properties"/>
     <jdbc:initialize-database data-source="dataSource">
-        <jdbc:script location="classpath:init-db.sql"/>
+        <jdbc:script location="/sql/init-db.sql"/>
     </jdbc:initialize-database>
 </beans>
